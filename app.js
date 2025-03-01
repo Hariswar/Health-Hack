@@ -28,4 +28,5 @@ app.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname, './views/404.html'));
   });
 
+console.log('Server running at http://localhost:3000/');
 app.listen(3000);
