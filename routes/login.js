@@ -17,24 +17,20 @@ router.post('/login', async (req, res) => {
     connection.query('SELECT * FROM accounts WHERE username = ?', [username], async function(error, results) {
       if (results.length > 0) {
         const user = results[0];
-        try {
           const isMatch = await bcrypt.compare(password, user.password);
           if (isMatch) {
             req.session.loggedin = true;
             req.session.username = username;
-            return res.redirect('/gameboard'); // Successfully logged in, redirect to gameboard
+            return res.redirect('/gameboard');
           } else {
-            return res.redirect('/login'); // Incorrect password, redirect to login
+            return res.json({ success: false, error: 'Invalid Credentials' });
           }
-        } catch (err) {
-          return res.redirect('/login'); // Incorrect password, redirect to login
-        }
       } else {
-        return res.redirect('/login'); // Incorrect password, redirect to login
+        return res.json({ success: false, error: 'Invalid Credentials' });
       }
     });
   } else {
-    return res.redirect('/login'); // Incorrect password, redirect to login
+    return res.json({ success: false, error: 'Username and Password are required' });
   }
 });
 

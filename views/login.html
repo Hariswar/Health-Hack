@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,minimum-scale=1">
-		<title>Login</title>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1">
+        <title>Login</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
         <link href="/css/style.css" rel="stylesheet" type="text/css">
-	</head>
-	<body>
-		<div class="container">
+    </head>
+    <body>
+        <div class="container">
             <div id="authContainer" class="auth-container">
               <div id="loginForm">
                 <form class="auth-form" id="login-form" action="/login" method="POST">
@@ -16,8 +16,10 @@
                   <div class="form-group">
                     <!-- Username -->
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required />
-                    <div class="error-message hidden" id="login-username-error"></div>
+                    <input type="text" id="username" name="username" />
+                    <div class="error-message hidden" id="login-username-error">
+                      Username is required
+                    </div>
                   </div>
 
                   <!-- Password -->
@@ -27,9 +29,10 @@
                       type="password"
                       id="password"
                       name="password"
-                      required
                     />
-                    <div class="error-message hidden" id="login-password-error"></div>
+                    <div class="error-message hidden" id="login-password-error">
+                      Password is required
+                    </div>
                   </div>
 
                   <!-- Submit -->
@@ -46,5 +49,34 @@
               </div>
             </div>
           </div>
-	</body>
+          <script>
+            document.getElementById('login-form').addEventListener('submit', function(event) {
+              let hasError = false;
+
+              // Username validation
+              const username = document.getElementById('username').value;
+              const usernameError = document.getElementById('login-username-error');
+              if (!username) {
+                usernameError.classList.remove('hidden');
+                hasError = true;
+              } else {
+                usernameError.classList.add('hidden');
+              }
+
+              // Password validation
+              const password = document.getElementById('password').value;
+              const passwordError = document.getElementById('login-password-error');
+              if (!password) {
+                passwordError.classList.remove('hidden');
+                hasError = true;
+              } else {
+                passwordError.classList.add('hidden');
+              }
+
+              if (hasError) {
+                event.preventDefault();
+              }
+            });
+          </script>
+    </body>
 </html>
