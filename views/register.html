@@ -4,36 +4,66 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,minimum-scale=1">
 		<title>Register</title>
-        <!-- the form awesome library is used to add icons to our form -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-        <!-- include the stylesheet file -->
-        <link href="../public/css/style.css" rel="stylesheet" type="text/css">
+        <link href="/css/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<div class="Register">
-			<h1>Register</h1>
-			<form action="/register" method="post">
-				<label for="username">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
+    <div class="container">
+            <div id="authContainer" class="auth-container">
+              <div id="loginForm">
+                <form class="auth-form" id="login-form" action="/register" method="POST">
+                  <h1 class="form-title">LOGIN</h1>
+                  <!-- Username -->
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required />
+                    <div class="error-message hidden" id="login-username-error"></div>
+                  </div>
 
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
+                  <!-- Email -->
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
+                    <div class="error-message hidden" id="login-email-error"></div>
+                  </div>
 
-                <label for="email">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="email" name="email" placeholder="Email" id="email" required>
-                
-				<input type="submit" value="Register">
-			</form>
+                  <!-- Password -->
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      required
+                    />
+                    <div class="error-message hidden" id="login-password-error"></div>
+                  </div>
 
-            <br />
+                  <!-- Confirm Password -->
+                  <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input
+                      type="password"
+                      id="confirm-password"
+                      name="confirm-password"
+                      required
+                    />
+                    <div class="error-message hidden" id="login-password-error"></div>
+                  </div>
 
-            <a href="/login">Already have an account? Login</a>
-		</div>
+                  <!-- Submit -->
+                  <button type="submit" class="btn">Register</button>
+                  <div class="success-message hidden" id="register-success"></div>
+                  <div class="error-message hidden" id="register-error"></div>
+
+                  <!-- Switch to Login -->
+                  <div class="switch-form">
+                    Already have an account?
+                    <a href="/login" id="switch-to-login">Login</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
 	</body>
 </html>
