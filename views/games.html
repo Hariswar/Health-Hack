@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Retro Mario Kart Clicker</title>
+  <title>Super Mario Clicker</title>
   
   <link href="/css/styles.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
             <h3 style ="font-size: 25px;">SUPER MUSHROOM</h3>
             <p style ="font-size: 25px;">Owned: <span id="super-mushroom-owned">0</span></p>
             <p style ="font-size: 25px;">Cost: <span id="super-mushroom-cost">100</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="super-mushroom-cps">10</span></p>
+            <p style ="font-size: 25px;">Add 1 Coin per Click</p>
             <br>
             <br> 
             <button id="super-mushroom-buy-button" class="buy-button" type="button" style="background-color: #0000ff; font-size: 25px; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button> 
@@ -51,12 +51,26 @@
             <br> 
           </div>
 
+          <div id="poison-mushroom" class="racers">
+            <img src="/images/poisonmush.png" alt="" width="200" height="200">
+            <h3 style ="font-size: 25px;">POISON MUSHROOM</h3>
+            <p style ="font-size: 25px;">Owned: <span id="poison-mushroom-owned">0</span></p>
+            <p style ="font-size: 25px;">Cost: <span id="poison-mushroom-cost">100</span></p>
+            <p style ="font-size: 25px;">Gain 10 Coins per Click</p>
+            <br>
+            <br> 
+            <button id="poison-mushroom-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>  
+            <br>
+            <br> 
+            <br>
+          </div>
+
           <div id="fire-flower" class="racers">
             <img src="/images/fireflowers.png" alt="" width="200" height="200">
             <h3 style ="font-size: 25px;">FIRE FLOWER</h3>
             <p style ="font-size: 25px;">Owned: <span id="fire-flower-owned">0</span></p>
             <p style ="font-size: 25px;">Cost: <span id="fire-flower-cost">100</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="fire-flower-cps">10</span></p>
+            <p style ="font-size: 25px;">Gain 50 Coins per Click</p>
             <br>
             <br> 
             <button id="fire-flower-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button> 
@@ -70,7 +84,7 @@
             <h3 style ="font-size: 25px;">1-UP MUSHROOM</h3>
             <p style ="font-size: 25px;">Owned: <span id="one-up-owned">0</span></p>
             <p style ="font-size: 25px;">Cost: <span id="one-up-cost">100</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="one-up-cps">10</span></p>
+            <p style ="font-size: 25px;">Gain 100 Coins per Click</p>
             <br>
             <br> 
             <button id="one-up-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button> 
@@ -79,40 +93,12 @@
             <br> 
           </div>
 
-          <div id="super-star" class="racers">
-            <img src="/images/superstars.png" alt="" width="200" height="200">
-            <h3 style ="font-size: 25px;">SUPER STAR</h3>
-            <p style ="font-size: 25px;">Owned: <span id="super-star-owned">0</span></p>
-            <p style ="font-size: 25px;">Cost: <span id="super-star-cost">100</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="super-star-cps">10</span></p>
-            <br>
-            <br> 
-            <button id="super-star-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>  
-            <br>
-            <br> 
-            <br>
-          </div>
-
-          <div id="poison-mushroom" class="racers">
-            <img src="/images/poisonmush.png" alt="" width="200" height="200">
-            <h3 style ="font-size: 25px;">POISON MUSHROOM</h3>
-            <p style ="font-size: 25px;">Owned: <span id="poison-mushroom-owned">0</span></p>
-            <p style ="font-size: 25px;">Cost: <span id="poison-mushroom-cost">100</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="poison-mushroom-cps">10</span></p>
-            <br>
-            <br> 
-            <button id="poison-mushroom-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>  
-            <br>
-            <br> 
-            <br>
-          </div>
-
           <div id="super-leaf" class="racers">
             <img src="/images/superleaf.webp" alt="" width="200" height="200">
             <h3 style ="font-size: 25px;">SUPER LEAF</h3>
             <p style ="font-size: 25px;">Owned: <span id="super-leaf-owned">0</span></p>
             <p style ="font-size: 25px;">Cost: <span id="super-leaf-cost">100</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="super-leaf-cps">10</span></p>
+            <p style ="font-size: 25px;">Gain 500 Coins per Click</p>
             <br>
             <br> 
             <button id="super-leaf-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>  
@@ -120,9 +106,22 @@
             <br> 
             <br>
           </div>
+
+          <div id="super-star" class="racers">
+            <img src="/images/superstars.png" alt="" width="200" height="200">
+            <h3 style ="font-size: 25px;">SUPER STAR</h3>
+            <p style ="font-size: 25px;">Owned: <span id="super-star-owned">0</span></p>
+            <p style ="font-size: 25px;">Cost: <span id="super-star-cost">100</span></p>
+            <p style ="font-size: 25px;">Gain 1000 Coins per Click</p>
+            <br>
+            <br> 
+            <button id="super-star-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>  
+            <br>
+            <br> 
+            <br>
+          </div>
         </div>
       </div>
-
 
       <!-- Middle panel - Clicker -->
       <div class="clicker-panel" style="flex: 1;">
@@ -133,30 +132,6 @@
         </div>
         <p class="coins-per-click" style ="font-size: 25px;">+<span id="coins-per-click" style ="font-size: 25px;">1.0</span> COINS PER CLICK</p>
         <p class="total-clicks" style = "font-size: 25px;">TOTAL CLICKS: <span id="total-clicks">0</span></p>
-        
-        <div class="stats-container">
-          <div class="stats-header">
-            <h2 style ="font-size: 25px;">STATS</h2>
-            <button id="toggle-view" class="toggle-button">
-              UPGRADES <span class="arrow-icon">▲</span>
-            </button>
-          </div>
-          
-          <div class="stats-box">
-            <div class="stat-row">  
-              <span style ="font-size: 20px;">COINS PER CLICK:</span>
-              <span id="cpc-stat" style ="font-size: 25px;">1.0</span>
-            </div>
-            <div class="stat-row">
-              <span style ="font-size: 20px;">COINS PER SECOND:</span>
-              <span id="cps-stat" style ="font-size: 25px;">0.0</span>
-            </div>
-            <div class="stat-row">
-              <span style ="font-size: 20px;">MULTIPLIER:</span>
-              <span id="multiplier-stat" style ="font-size: 25px;">x1.0</span>
-            </div>
-          </div>
-        </div>
       </div>
     
       <!-- Right panel - Shop -->
@@ -169,7 +144,7 @@
             <img src="Images/mario.png" alt="Mario" width="300" height="250">
             <h3 style ="font-size: 25px;">MARIO</h3>
             <p style ="font-size: 25px;">Cost: <span id="mario-cost">10</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="mario-cps">1</span></p>
+            <p style ="font-size: 25px;">Gain 10 Coin per Second</p>
             <br>
             <br> 
             <button id="mario-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>
@@ -182,7 +157,7 @@
             <img src="Images/luigi.png" alt="Luigi" width="180" height="230">
             <h3 style ="font-size: 25px;">LUIGI</h3>
             <p style ="font-size: 25px;">Cost: <span id="luigi-cost">20</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="luigi-cps">2</span></p>
+            <p style ="font-size: 25px;">Gain 20 Coin per Second</p>
             <br>
             <br> 
             <button id="luigi-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>
@@ -195,7 +170,7 @@
             <img src="Images/princessPeach.png" alt="Princess Peach" width="200" height="200">
             <h3 style ="font-size: 25px;">PRINCESS PEACH</h3>
             <p style ="font-size: 25px;">Cost: <span id="peach-cost">50</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="peach-cps">5</span></p>
+            <p style ="font-size: 25px;">Gain 50 Coin per Second</p>
             <br>
             <br> 
             <button id="peach-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>
@@ -208,7 +183,7 @@
             <img src="Images/bowser.png" alt="Bowser" width="200" height="200">
             <h3 style ="font-size: 25px;">BOWSER</h3>
             <p style ="font-size: 25px;">Cost: <span id="bowser-cost">100</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="bowser-cps">10</span></p>
+            <p style ="font-size: 25px;">Gain 100 Coin per Second</p>
             <br>
             <br> 
             <button id="bowser-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>
@@ -221,7 +196,7 @@
             <img src="Images/Warioo.png" alt="Wario" width="200" height="200">
             <h3 style ="font-size: 25px;">WARIO</h3>
             <p style ="font-size: 25px;">Cost: <span id="wario-cost">200</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="wario-cps">20</span></p>
+            <p style ="font-size: 25px;">Gain 1000 Coin per Second</p>
             <br>
             <br> 
             <button id="wario-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>
@@ -234,7 +209,7 @@
             <img src="Images/waluigi.png" alt="Waluigi" width="200" height="200">
             <h3 style ="font-size: 25px;">WALUIGI</h3>
             <p style ="font-size: 25px;">Cost: <span id="waluigi-cost">500</span></p>
-            <p style ="font-size: 25px;">Coins per second: <span id="waluigi-cps">50</span></p>
+            <p style ="font-size: 25px;">Gain 10000 Coin per Second</p>
             <br>
             <br> 
             <button id="waluigi-buy-button" class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 25px; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>
@@ -245,22 +220,11 @@
         </div>
       </div>
     </main>
-    
-    <!-- Achievements -->
-     <center><h2 id="achievements-title">ACHIEVEMENTS</h2></center>
-    <div id="achievement-list" class="achievement-list"></div>
-
-    <!-- Notifications -->
-    <div id="notification" class="notification"></div>
-    <div id="save-notification" class="save-notification">Game Saved!</div>
-
-    <!-- Floating numbers -->
-    <div id="floating-numbers" class="floating-numbers"></div>
 
     <!-- Footer -->
     <footer>
       <a href="/health">Health</a>
-      <p>SUPER MARIO KART CLICKER © 1992-2025 - PRESS START TO RACE!</p>
+      <p>SUPER MARIO CLICKER © 1992-2025 - PRESS START TO RACE!</p>
     </footer>
   </div>
   <script src="/js/games.js" defer></script>
