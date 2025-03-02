@@ -14,6 +14,68 @@ document.addEventListener('DOMContentLoaded', () => {
                 costMultiplier: 1.5, 
                 coinsPerClick: 1 
             },
+            'poison-mushroom': { 
+                owned: 0, 
+                cost: 100, 
+                costMultiplier: 1.5, 
+                coinsPerClick: 5 
+            },
+            'fire-flower': { 
+                owned: 0, 
+                cost: 10000, 
+                costMultiplier: 1.5, 
+                coinsPerClick: 50 
+            },
+            'one-up': { 
+                owned: 0, 
+                cost: 100000, 
+                costMultiplier: 1.5, 
+                coinsPerClick: 100 
+            },
+            'super-leaf': { 
+                owned: 0, 
+                cost: 1000000, 
+                costMultiplier: 1.5, 
+                coinsPerClick: 500 
+            },
+            'super-star': { 
+                owned: 0, 
+                cost: 10000000, 
+                costMultiplier: 1.5, 
+                coinsPerClick: 1000 
+            },
+            characters: {
+                'mario': {
+                    owned: 0,
+                    cost: 100000000,
+                    coinsPerSecond: 10000
+                },
+                'luigi': {
+                    owned: 0,
+                    cost: 1000000000,
+                    coinsPerSecond: 100000
+                },
+                'peach': {
+                    owned: 0,
+                    cost: 10000000000,
+                    coinsPerSecond: 1000000
+                },
+                'bowser': {
+                    owned: 0,
+                    cost: 100000000000,
+                    coinsPerSecond: 10000000
+                },
+                'wario': {
+                    owned: 0,
+                    cost: 1000000000000,
+                    coinsPerSecond: 100000000
+                },
+                'waluigi': {
+                    owned: 0,
+                    cost: 10000000000000,
+                    coinsPerSecond: 1000000000
+                }
+            }
         },
 
         achievements: [
@@ -40,8 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cpsStat = document.getElementById('cps-stat');
     const multiplierStat = document.getElementById('multiplier-stat');
 
-    const floatingNumbersElement = document.getElementById('floating-numbers');
-    const shopItems = document.querySelectorAll('.shop-items .racers');
     const achievementListElement = document.getElementById('achievement-list');
     const notificationElement = document.getElementById('notification');
     const saveNotificationElement = document.getElementById('save-notification');
@@ -53,6 +113,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const superMushroomOwned = document.getElementById('super-mushroom-owned');
     const superMushroomCPS = document.getElementById('super-mushroom-cps');
     const superMushroomBuyButton = document.getElementById('super-mushroom-buy-button');
+
+    const fireFlowerCost = document.getElementById('fire-flower-cost');
+    const fireFlowerOwned = document.getElementById('fire-flower-owned');
+    const fireFlowerCPS = document.getElementById('fire-flower-cps');
+    const fireFlowerBuyButton = document.getElementById('fire-flower-buy-button');
+
+    const oneUpCost = document.getElementById('one-up-cost');
+    const oneUpOwned = document.getElementById('one-up-owned');
+    const oneUpCPS = document.getElementById('one-up-cps');
+    const oneUpBuyButton = document.getElementById('one-up-buy-button');
+
+    const superStarCost = document.getElementById('super-star-cost');
+    const superStarOwned = document.getElementById('super-star-owned');
+    const superStarCPS = document.getElementById('super-star-cps');
+    const superStarBuyButton = document.getElementById('super-star-buy-button');
+
+    const poisonMushroomCost = document.getElementById('poison-mushroom-cost');
+    const poisonMushroomOwned = document.getElementById('poison-mushroom-owned');
+    const poisonMushroomCPS = document.getElementById('poison-mushroom-cps');
+    const poisonMushroomBuyButton = document.getElementById('poison-mushroom-buy-button');
+
+    const superLeafCost = document.getElementById('super-leaf-cost');
+    const superLeafOwned = document.getElementById('super-leaf-owned');
+    const superLeafCPS = document.getElementById('super-leaf-cps');
+    const superLeafBuyButton = document.getElementById('super-leaf-buy-button');
+
+    const marioCost = document.getElementById('mario-cost');
+    const marioCPS = document.getElementById('mario-cps');
+    const marioBuyButton = document.getElementById('mario-buy-button');
+
+    const luigiCost = document.getElementById('luigi-cost');
+    const luigiCPS = document.getElementById('luigi-cps');
+    const luigiBuyButton = document.getElementById('luigi-buy-button');
+    
+    const peachCost = document.getElementById('peach-cost');
+    const peachCPS = document.getElementById('peach-cps');
+    const peachBuyButton = document.getElementById('peach-buy-button');
+
+    const bowserCost = document.getElementById('bowser-cost');
+    const bowserCPS = document.getElementById('bowser-cps');
+    const bowserBuyButton = document.getElementById('bowser-buy-button');
+
+    const warioCost = document.getElementById('wario-cost');
+    const warioCPS = document.getElementById('wario-cps');
+    const warioBuyButton = document.getElementById('wario-buy-button');
+
+    const waluigiCost = document.getElementById('waluigi-cost');
+    const waluigiCPS = document.getElementById('waluigi-cps');
+    const waluigiBuyButton = document.getElementById('waluigi-buy-button');
+
     
     // Initialize game
     function initGame() {
@@ -85,6 +195,55 @@ document.addEventListener('DOMContentLoaded', () => {
         superMushroomOwned.textContent = gameState.items['super-mushroom'].owned;
         superMushroomCPS.textContent = gameState.items['super-mushroom'].coinsPerClick;
         superMushroomBuyButton.disabled = gameState.coins < Math.floor(gameState.items['super-mushroom'].cost * Math.pow(gameState.items['super-mushroom'].costMultiplier, gameState.items['super-mushroom'].owned));
+
+        poisonMushroomCost.textContent = Math.floor(gameState.items['poison-mushroom'].cost * Math.pow(gameState.items['poison-mushroom'].costMultiplier, gameState.items['poison-mushroom'].owned));
+        poisonMushroomOwned.textContent = gameState.items['poison-mushroom'].owned;
+        poisonMushroomCPS.textContent = gameState.items['poison-mushroom'].coinsPerClick;
+        poisonMushroomBuyButton.disabled = gameState.coins < Math.floor(gameState.items['poison-mushroom'].cost * Math.pow(gameState.items['poison-mushroom'].costMultiplier, gameState.items['poison-mushroom'].owned));
+
+        fireFlowerCost.textContent = Math.floor(gameState.items['fire-flower'].cost * Math.pow(gameState.items['fire-flower'].costMultiplier, gameState.items['fire-flower'].owned));
+        fireFlowerOwned.textContent = gameState.items['fire-flower'].owned;
+        fireFlowerCPS.textContent = gameState.items['fire-flower'].coinsPerClick;
+        fireFlowerBuyButton.disabled = gameState.coins < Math.floor(gameState.items['fire-flower'].cost * Math.pow(gameState.items['fire-flower'].costMultiplier, gameState.items['fire-flower'].owned));
+
+        oneUpCost.textContent = Math.floor(gameState.items['one-up'].cost * Math.pow(gameState.items['one-up'].costMultiplier, gameState.items['one-up'].owned));
+        oneUpOwned.textContent = gameState.items['one-up'].owned;
+        oneUpCPS.textContent = gameState.items['one-up'].coinsPerClick;
+        oneUpBuyButton.disabled = gameState.coins < Math.floor(gameState.items['one-up'].cost * Math.pow(gameState.items['one-up'].costMultiplier, gameState.items['one-up'].owned));
+
+        superLeafCost.textContent = Math.floor(gameState.items['super-leaf'].cost * Math.pow(gameState.items['super-leaf'].costMultiplier, gameState.items['super-leaf'].owned));
+        superLeafOwned.textContent = gameState.items['super-leaf'].owned;
+        superLeafCPS.textContent = gameState.items['super-leaf'].coinsPerClick;
+        superLeafBuyButton.disabled = gameState.coins < Math.floor(gameState.items['super-leaf'].cost * Math.pow(gameState.items['super-leaf'].costMultiplier, gameState.items['super-leaf'].owned));
+
+        superStarCost.textContent = Math.floor(gameState.items['super-star'].cost * Math.pow(gameState.items['super-star'].costMultiplier, gameState.items['super-star'].owned));
+        superStarOwned.textContent = gameState.items['super-star'].owned;
+        superStarCPS.textContent = gameState.items['super-star'].coinsPerClick;
+        superStarBuyButton.disabled = gameState.coins < Math.floor(gameState.items['super-star'].cost * Math.pow(gameState.items['super-star'].costMultiplier, gameState.items['super-star'].owned));
+
+        marioCost.textContent = Math.floor(gameState.items.characters['mario'].cost);
+        marioCPS.textContent = gameState.items.characters['mario'].coinsPerSecond;
+        marioBuyButton.disabled = gameState.coins < gameState.items.characters['mario'].cost;
+
+        luigiCost.textContent = Math.floor(gameState.items.characters['luigi'].cost);
+        luigiCPS.textContent = gameState.items.characters['luigi'].coinsPerSecond;
+        luigiBuyButton.disabled = gameState.coins < gameState.items.characters['luigi'].cost;
+
+        peachCost.textContent = Math.floor(gameState.items.characters['peach'].cost);
+        peachCPS.textContent = gameState.items.characters['peach'].coinsPerSecond;
+        peachBuyButton.disabled = gameState.coins < gameState.items.characters['peach'].cost;
+
+        bowserCost.textContent = Math.floor(gameState.items.characters['bowser'].cost);
+        bowserCPS.textContent = gameState.items.characters['bowser'].coinsPerSecond;
+        bowserBuyButton.disabled = gameState.coins < gameState.items.characters['bowser'].cost;
+
+        warioCost.textContent = Math.floor(gameState.items.characters['wario'].cost);
+        warioCPS.textContent = gameState.items.characters['wario'].coinsPerSecond;
+        warioBuyButton.disabled = gameState.coins < gameState.items.characters['wario'].cost;
+
+        waluigiCost.textContent = Math.floor(gameState.items.characters['waluigi'].cost);
+        waluigiCPS.textContent = gameState.items.characters['waluigi'].coinsPerSecond;
+        waluigiBuyButton.disabled = gameState.coins < gameState.items.characters['waluigi'].cost;
     }
 
     // Set up event listeners
@@ -97,6 +256,50 @@ document.addEventListener('DOMContentLoaded', () => {
         // Buy event
         superMushroomBuyButton.addEventListener('click', () => {
             buyItem("super-mushroom");
+        });
+
+        poisonMushroomBuyButton.addEventListener('click', () => {
+            buyItem("poison-mushroom");
+        });
+
+        fireFlowerBuyButton.addEventListener('click', () => {
+            buyItem("fire-flower");
+        });
+
+        oneUpBuyButton.addEventListener('click', () => {
+            buyItem("one-up");
+        });
+
+        superLeafBuyButton.addEventListener('click', () => {
+            buyItem("super-leaf");
+        });
+
+        superStarBuyButton.addEventListener('click', () => {
+            buyItem("super-star");
+        });
+
+        marioBuyButton.addEventListener('click', () => {
+            buyItem("mario");
+        });
+
+        luigiBuyButton.addEventListener('click', () => {
+            buyItem("luigi");
+        });
+
+        peachBuyButton.addEventListener('click', () => {
+            buyItem("peach");
+        });
+
+        bowserBuyButton.addEventListener('click', () => {
+            buyItem("bowser");
+        });
+
+        warioBuyButton.addEventListener('click', () => {
+            buyItem("wario");
+        });
+
+        waluigiBuyButton.addEventListener('click', () => {
+            buyItem("waluigi");
         });
 
         toggleViewButton.addEventListener('click', () => {
@@ -133,7 +336,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Buy item function
     function buyItem(itemId) {
         const item = gameState.items[itemId];
-        console.log("item", item);
         const cost = Math.floor(item.cost * Math.pow(item.costMultiplier, item.owned));
 
         if (gameState.coins >= cost) {
@@ -142,6 +344,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Apply item effects
             if (itemId === "super-mushroom") {
+                gameState.coinsPerClick += item.coinsPerClick;
+            }
+
+            if (itemId === "poison-mushroom") {
+                gameState.coinsPerClick += item.coinsPerClick;
+            }
+
+            if (itemId === "fire-flower") {
+                gameState.coinsPerClick += item.coinsPerClick;
+            }
+
+            if (itemId === "one-up") {
+                gameState.coinsPerClick += item.coinsPerClick;
+            }
+
+            if (itemId === "super-leaf") {
+                gameState.coinsPerClick += item.coinsPerClick;
+            }
+
+            if (itemId === "super-star") {
                 gameState.coinsPerClick += item.coinsPerClick;
             }
 
@@ -160,6 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function formatItemName(itemId) {
         const names = {
             'mushroom': 'Super Mushroom',
+            'poison-mushroom': 'Poison Mushroom',
             'fire-flower': 'Fire Flower',
             'star': 'Starman',
             'one-up': '1-Up Mushroom'
