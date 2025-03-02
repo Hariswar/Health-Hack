@@ -6,6 +6,8 @@ const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const gameboardRoute = require('./routes/gameboard');
+const gameRoute = require('./routes/games');
+const healthRoute = require('./routes/health');
 
 const app = express();
 
@@ -23,6 +25,8 @@ app.use('/', indexRouter);
 app.use('/', loginRouter);
 app.use('/', registerRouter);
 app.use('/', gameboardRoute);
+app.use('/', gameRoute);
+app.use('/', healthRoute);
 
 app.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname, './views/404.html'));
