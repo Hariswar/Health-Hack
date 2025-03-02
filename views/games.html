@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Retro Mario Kart Clicker</title>
+  
   <link href="/css/styles.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  
 </head>
 <body>
     
@@ -26,57 +28,28 @@
         </div>
       </div>
     </header>
-
-    <!-- Main content -->
+    
     <main>
       <!-- Left panel - Clicker -->
-      <div class="clicker-panel">
-        <div id="coin-button" class="coin-button">
-          <button id="coin-button" class="buy-button" type="button" style="background-color: #ffea00; color: rgb(237, 249, 3); border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">
-            <img src="Images/coinn.png" alt="Button Image" style="width: 100px; height: 100px;" />
-          </button>
-        </div>
-        <p class="coins-per-click">+<span id="coins-per-click">1.0</span> COINS PER CLICK</p>
-        <p class="total-clicks">TOTAL CLICKS: <span id="total-clicks">0</span></p>
-        
-        <div class="stats-container">
-          <div class="stats-header">
-            <h2>STATS</h2>
-            <button id="toggle-view" class="toggle-button">
-              UPGRADES <span class="arrow-icon">▲</span>
-            </button>
-          </div>
-          
-          <div class="stats-box">
-            <div class="stat-row">
-              <span>COINS PER CLICK:</span>
-              <span id="cpc-stat">1.0</span>
-            </div>
-            <div class="stat-row">
-              <span>COINS PER SECOND:</span>
-              <span id="cps-stat">0.0</span>
-            </div>
-            <div class="stat-row">
-              <span>MULTIPLIER:</span>
-              <span id="multiplier-stat">x1.0</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right panel - Shop -->
-      <div class="shop-panel">
-        <h2 id="shop-title">UPGRADES</h2>
-
       
-        <div id="characters-shop" class="upgrade_items">
+      
+        
+        <div class="shop-panel" style="flex: 1;" >
+        <center><h2 id="shop-title">UPGRADES</h2></center>
+
+        
+        <div id="characters-shop" class="upgrade_items" >
+        <div id="supermush" class="racers">
+          <br>
+          <br>
+          <br>
           <img src="Images/supermush.png" alt="" width="200" height="200">
           <h3>SUPER MUSHROOM</h3>
           <p>Cost: <span id="supermushroom">100</span></p>
           <p>Coins per second: <span id="supermushroom">10</span></p>
-          <button class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>
+          <button class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 0.8rem; cursor: pointer; display: flex; align-items: left; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>
         </div>
-    
+     
     
       <div id="characters-shop" class="upgrade-items">
           <div id="fireflower" class="racers">
@@ -96,7 +69,7 @@
             <p>Coins per second: <span id="superstar(starman)-cps">10</span></p>
             <button class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>    
           </div>
-          
+         </div> 
          
       <div id="characters-shop" class="upgrade-items">
           <div id="poisonmushroom" class="racers">
@@ -106,7 +79,7 @@
             <p>Coins per second: <span id="poisonmushroom-cps">10</span></p>
             <button class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button> 
           </div>    
-    
+        </div> 
        
       <div id="characters-shop" class="upgrade-items">
           <div id="1-upmushroom" class="racers">
@@ -116,20 +89,64 @@
             <p>Coins per second: <span id="1-upmushroom-cps">10</span></p>
             <button class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button>
           </div>   
-    
+        </div> 
      
       <div id="characters-shop" class="upgrade-items">
           <div id="superleaf" class="racers">
-            <img src="Images/superleaf.webp" alt= width="200" height="200">
+            <img src="Images/superleaf.webp" alt="" width="200" height="200">
             <h3>SUPER LEAF</h3>
             <p>Cost: <span id="superleaf">100</span></p>
             <p>Coins per second: <span id="superleaf-cps">10</span></p>
             <button class="buy-button" type="button" style="background-color: #0000ff; color: white; border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">Buy</button> 
           </div>
+          
+      </div>
       
+      </div>
+      </div>
+      </div>
+      
+    
+      <div class="clicker-panel" style="flex: 1; width: 100px;" >
+        <div id="coin-button" class="coin-button">
+          <button id="coin-button" class="buy-button" type="button" style="background-color: #ffea00; color: rgb(237, 249, 3); border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">
+            <img src="Images/coinn.png" alt="Button Image" style="width: 100px; height: 100px;" />
+          </button>
+        </div>
+        <p class="coins-per-click">+<span id="coins-per-click">1.0</span> COINS PER CLICK</p>
+        <p class="total-clicks">TOTAL CLICKS: <span id="total-clicks">0</span></p>
+        
+        <div class="stats-container">
+          <div class="stats-header">
+            <h2>STATS</h2>
+            <button id="toggle-view" class="toggle-button">
+              UPGRADES <span class="arrow-icon">▲</span>
+            </button>
+          </div>
+          
+          <div class="stats-box">
+            <div class="stat-row">  
+              <span>COINS PER CLICK:</span>
+              <span id="cpc-stat">1.0</span>
+            </div>
+            <div class="stat-row">
+              <span>COINS PER SECOND:</span>
+              <span id="cps-stat">0.0</span>
+            </div>
+            <div class="stat-row">
+              <span>MULTIPLIER:</span>
+              <span id="multiplier-stat">x1.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Right panel - Shop -->
+      <div class="shop-panel" style="flex: 1;">
+      <div id="characters-shop" class="shop-items">
         <h2 id="shop-title">CHARACTERS</h2>
         
-        <div id="characters-shop" class="shop-items">
+        <div id="characters-shop" class="shop-items" ></div>
           <div id="mario" class="racers">            
             <img src="Images/Marioo.png" alt="Mario" width="200" height="200">
             <h3>MARIO</h3>
@@ -189,11 +206,10 @@
         
         </div>
       </div>
-      
+    </div>
         
         
     </main>
-
     <!-- Achievements -->
     <div id="achievement-list" class="achievement-list"></div>
 
@@ -203,9 +219,12 @@
 
     <!-- Floating numbers -->
     <div id="floating-numbers" class="floating-numbers"></div>
+    <!-- Main content -->
+    
 
     <!-- Footer -->
     <footer>
+      <a href="/health">Health</a>
       <p>SUPER MARIO KART CLICKER © 1992-2025 - PRESS START TO RACE!</p>
     </footer>
   </div>

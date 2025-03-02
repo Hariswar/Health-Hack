@@ -6,6 +6,9 @@
     font-family: 'Courier New', monospace;
   }
   
+  
+  
+  
   body {
     background-color: #0f380f; /* Classic Game Boy green */
     color: #f8f8f8;
@@ -250,6 +253,17 @@ button:active {
   
   /* Shop panel styles */
   .shop-panel {
+    display: flex;
+    background-color: #2d2d2d;
+    border-radius: 0;
+    padding: 1.5rem;
+    box-shadow: 0 0 0 4px #000, 0 0 0 8px #ffd700;
+    flex: 2;
+    border: 2px solid #fff;
+    text-align: left;
+  }
+  .characters-shop{
+    display: flex;
     background-color: #2d2d2d;
     border-radius: 0;
     padding: 1.5rem;
@@ -258,6 +272,7 @@ button:active {
     border: 2px solid #fff;
   }
   .shop-panel-upgrade {
+    
     background-color: #2d2d2d;
     border-radius: 0;
     padding: 1.5rem;
@@ -274,11 +289,14 @@ button:active {
     letter-spacing: 2px;
     border-bottom: 2px solid #ffd700;
     padding-bottom: 0.5rem;
+    
   }
   
   .shop-items {
     display: grid;
     gap: 1rem;
+    
+  text-align: left;
   }
   
   .shop-item {
@@ -286,7 +304,7 @@ button:active {
     border-radius: 0;
     padding: 0.8rem;
     display: flex;
-    align-items: center;
+    align-items: left;
     cursor: pointer;
     transition: background-color 0.2s;
     background-color: #1a1a1a;
@@ -424,10 +442,10 @@ button:active {
     background-color: #000;
     border-radius: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     font-size: 1.5rem;
-    margin-right: 0.8rem;
+    margin-right: 0.1rem;
     border: 2px solid #fff;
   }
   
