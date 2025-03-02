@@ -8,11 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
         totalClicks: 0,
         multiplier: 1,
         items: {
-            mushroom: { owned: 0, cost: 10, costMultiplier: 1.5, coinsPerClick: 1 },
-            'fire-flower': { owned: 0, cost: 50, costMultiplier: 1.5, coinsPerSecond: 1 },
-            star: { owned: 0, cost: 200, costMultiplier: 1.5, coinsPerSecond: 5 },
-            'one-up': { owned: 0, cost: 500, costMultiplier: 2, globalMultiplier: 2 }
+            'super-mushroom': { 
+                owned: 0, 
+                cost: 10, 
+                costMultiplier: 1.5, 
+                coinsPerClick: 1 
+            },
         },
+
         achievements: [
             { id: 'first-coin', name: 'First Coin!', description: 'Click your first coin', unlocked: false, requirement: () => gameState.totalClicks >= 1 },
             { id: 'ten-coins', name: 'Coin Collector', description: 'Earn 10 coins', unlocked: false, requirement: () => gameState.totalCoinsEarned >= 10 },
@@ -23,18 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 'passive-income', name: 'Passive Income', description: 'Earn coins automatically', unlocked: false, requirement: () => gameState.coinsPerSecond > 0 },
             { id: 'click-machine', name: 'Click Machine', description: 'Click 100 times', unlocked: false, requirement: () => gameState.totalClicks >= 100 }
         ],
+
         lastSaved: Date.now()
     };
 
-    // DOM elements
     const coinElement = document.getElementById('coin-button');
     const coinCountElement = document.getElementById('coin-counter');
     const coinsPerClickElement = document.getElementById('coins-per-click');
     const coinsPerSecondElement = document.getElementById('coins-per-second');
+    
     const totalClicksDisplay = document.getElementById('total-clicks');
     const cpcStat = document.getElementById('cpc-stat');
     const cpsStat = document.getElementById('cps-stat');
     const multiplierStat = document.getElementById('multiplier-stat');
+
     const floatingNumbersElement = document.getElementById('floating-numbers');
     const shopItems = document.querySelectorAll('.shop-items .racers');
     const achievementListElement = document.getElementById('achievement-list');
@@ -44,16 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const shopTitle = document.getElementById('shop-title');
     const arrowIcon = document.querySelector('.arrow-icon');
 
-    // Sound effects
-    const coinSound = new Audio('https://themushroomkingdom.net/sounds/wav/smw/smw_coin.wav');
-    const powerupSound = new Audio('https://themushroomkingdom.net/sounds/wav/smw/smw_power-up.wav');
-    const achievementSound = new Audio('https://themushroomkingdom.net/sounds/wav/smw/smw_1-up.wav');
-
-    // Preload sounds
-    coinSound.load();
-    powerupSound.load();
-    achievementSound.load();
-
+    const superMushroomCost = document.getElementById('super-mushroom-cost');
+    const superMushroomOwned = document.getElementById('super-mushroom-owned');
+    const superMushroomCPS = document.getElementById('super-mushroom-cps');
+    const superMushroomBuyButton = document.getElementById('super-mushroom-buy-button');
+    
     // Initialize game
     function initGame() {
         // Load saved game if exists
@@ -81,28 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
         multiplierStat.textContent = `x${(gameState.coinsPerClick / 1).toFixed(1)}`;
 
         // Update shop items
-        shopItems.forEach(item => {
-            const id = parseInt(item.id);
-            const itemData = gameState.items[id];
-            const costElement = item.querySelector('.cost-amount');
-            const ownedElement = item.querySelector('.owned-count');
-            const buyButton = item.querySelector('.buy-button');
-            const currentCost = 0;
-
-            if (itemData !== undefined) {
-                currentCost = Math.floor(itemData.cost * Math.pow(itemData.costMultiplier, itemData.owned));
-                
-                costElement.textContent = currentCost;
-                ownedElement.textContent = itemData.owned;
-
-                // Disable buy button if not enough coins
-                if (gameState.coins < currentCost) {
-                    buyButton.disabled = true;
-                } else {
-                    buyButton.disabled = false;
-                }
-            }
-        });
+        superMushroomCost.textContent = Math.floor(gameState.items['super-mushroom'].cost * Math.pow(gameState.items['super-mushroom'].costMultiplier, gameState.items['super-mushroom'].owned));
+        superMushroomOwned.textContent = gameState.items['super-mushroom'].owned;
+        superMushroomCPS.textContent = gameState.items['super-mushroom'].coinsPerClick;
+        superMushroomBuyButton.disabled = gameState.coins < Math.floor(gameState.items['super-mushroom'].cost * Math.pow(gameState.items['super-mushroom'].costMultiplier, gameState.items['super-mushroom'].owned));
     }
 
     // Set up event listeners
@@ -112,12 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
             clickCoin();
         });
 
-        // Shop item buy events
-        shopItems.forEach(item => {
-            const buyButton = item.querySelector('.buy-button');
-            buyButton.addEventListener('click', () => {
-                buyItem(item.id);
-            });
+        // Buy event
+        superMushroomBuyButton.addEventListener('click', () => {
+            buyItem("super-mushroom");
         });
 
         toggleViewButton.addEventListener('click', () => {
@@ -138,17 +117,11 @@ document.addEventListener('DOMContentLoaded', () => {
         gameState.totalCoinsEarned += coinsEarned;
         gameState.totalClicks++;
 
-        // Play coin sound
-        playCoinSound();
-
         // Animate coin
         coinElement.classList.add('clicked');
         setTimeout(() => {
             coinElement.classList.remove('clicked');
         }, 300);
-
-        // Show floating number
-        showFloatingNumber('+' + coinsEarned.toFixed(1));
 
         // Check achievements
         checkAchievements();
@@ -157,57 +130,19 @@ document.addEventListener('DOMContentLoaded', () => {
         updateUI();
     }
 
-    // Play coin sound with random pitch
-    function playCoinSound() {
-        // Create a new audio element each time to allow overlapping sounds
-        const sound = coinSound.cloneNode();
-        sound.volume = 0.3;
-        sound.playbackRate = 0.8 + Math.random() * 0.4; // Random pitch between 0.8 and 1.2
-        sound.play().catch(e => console.log("Audio play failed:", e));
-    }
-
-    // Show floating number animation
-    function showFloatingNumber(text) {
-        const floatingNumber = document.createElement('div');
-        floatingNumber.className = 'floating-number';
-        floatingNumber.textContent = text;
-
-        // Random position around the coin
-        const left = 20 + Math.random() * 60; // 20% to 80% of container width
-        const top = 20 + Math.random() * 60; // 20% to 80% of container height
-
-        floatingNumber.style.left = `${left}%`;
-        floatingNumber.style.top = `${top}%`;
-
-        floatingNumbersElement.appendChild(floatingNumber);
-
-        // Remove after animation completes
-        setTimeout(() => {
-            floatingNumber.remove();
-        }, 1000);
-    }
-
     // Buy item function
     function buyItem(itemId) {
         const item = gameState.items[itemId];
+        console.log("item", item);
         const cost = Math.floor(item.cost * Math.pow(item.costMultiplier, item.owned));
 
         if (gameState.coins >= cost) {
             gameState.coins -= cost;
             item.owned++;
 
-            // Play powerup sound
-            powerupSound.currentTime = 0;
-            powerupSound.volume = 0.5;
-            powerupSound.play().catch(e => console.log("Audio play failed:", e));
-
             // Apply item effects
-            if (itemId === 'mushroom') {
+            if (itemId === "super-mushroom") {
                 gameState.coinsPerClick += item.coinsPerClick;
-            } else if (itemId === 'fire-flower' || itemId === 'star') {
-                gameState.coinsPerSecond += item.coinsPerSecond;
-            } else if (itemId === 'one-up') {
-                gameState.multiplier *= item.globalMultiplier;
             }
 
             // Show notification
@@ -283,11 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (newAchievements) {
-            // Play achievement sound
-            achievementSound.currentTime = 0;
-            achievementSound.volume = 0.5;
-            achievementSound.play().catch(e => console.log("Audio play failed:", e));
-
             // Update achievements display
             renderAchievements();
         }
