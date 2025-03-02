@@ -32,11 +32,9 @@
       <!-- Left panel - Clicker -->
       <div class="clicker-panel">
         <div id="coin-button" class="coin-button">
-          
-          
-          <button class="buy-button" type="button" style="background-color: #ffea00; color: rgb(237, 249, 3); border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">
-          <img src="Images/coinn.png" alt="Button Image" style="width: 100px; height: 100px;" />
-        </button>
+          <button id="coin-button" class="buy-button" type="button" style="background-color: #ffea00; color: rgb(237, 249, 3); border: none; border-radius: 0; padding: 0.5rem 1rem; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; font-family: 'Courier New', monospace; font-weight: bold; box-shadow: 0 4px 0 #000080, 0 6px 6px rgba(0, 0, 0, 0.3); border: 2px solid #fff; text-transform: uppercase;">
+            <img src="Images/coinn.png" alt="Button Image" style="width: 100px; height: 100px;" />
+          </button>
         </div>
         <p class="coins-per-click">+<span id="coins-per-click">1.0</span> COINS PER CLICK</p>
         <p class="total-clicks">TOTAL CLICKS: <span id="total-clicks">0</span></p>
@@ -196,12 +194,21 @@
         
     </main>
 
+    <!-- Achievements -->
+    <div id="achievement-list" class="achievement-list"></div>
+
+    <!-- Notifications -->
+    <div id="notification" class="notification"></div>
+    <div id="save-notification" class="save-notification">Game Saved!</div>
+
+    <!-- Floating numbers -->
+    <div id="floating-numbers" class="floating-numbers"></div>
+
     <!-- Footer -->
     <footer>
       <p>SUPER MARIO KART CLICKER © 1992-2025 - PRESS START TO RACE!</p>
     </footer>
   </div>
-
-  <script src="game.js"></script>
+  <script src="/js/games.js"></script>
 </body>
 </html>

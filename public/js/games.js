@@ -82,22 +82,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update shop items
         shopItems.forEach(item => {
-            const id = item.id;
+            const id = parseInt(item.id);
             const itemData = gameState.items[id];
             const costElement = item.querySelector('.cost-amount');
             const ownedElement = item.querySelector('.owned-count');
             const buyButton = item.querySelector('.buy-button');
+            const currentCost = 0;
 
-            const currentCost = Math.floor(itemData.cost * Math.pow(itemData.costMultiplier, itemData.owned));
+            if (itemData !== undefined) {
+                currentCost = Math.floor(itemData.cost * Math.pow(itemData.costMultiplier, itemData.owned));
+                
+                costElement.textContent = currentCost;
+                ownedElement.textContent = itemData.owned;
 
-            costElement.textContent = currentCost;
-            ownedElement.textContent = itemData.owned;
-
-            // Disable buy button if not enough coins
-            if (gameState.coins < currentCost) {
-                buyButton.disabled = true;
-            } else {
-                buyButton.disabled = false;
+                // Disable buy button if not enough coins
+                if (gameState.coins < currentCost) {
+                    buyButton.disabled = true;
+                } else {
+                    buyButton.disabled = false;
+                }
             }
         });
     }
