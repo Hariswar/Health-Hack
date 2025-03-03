@@ -9,7 +9,7 @@ The methods of the student wellbeing team are basic. We were inspired to create 
 - **Fire Flower** - Allows Mario to shoot fireballs
 - **And more!**
 
-But the real power-ups come from **real-world actions**! Players can earn stars - a premium in-game currency - by hitting personal health goals, such as:
+But the real power-ups come from **real-world actions**! Players can earn stars a premium in-game currency by hitting personal health goals, such as:
 - Getting enough sleep
 - Eating within a healthy calorie range
 - Completing daily exercise goals
