@@ -1,35 +1,50 @@
 # Heath-Hack
 
-Inspiration
-The methods of student wellbeing team are basic is We were inspired to create a game that the student health and wellness team can utilize to better connect with students and convey their important message of promoting mental heath.
+# Inspiration
+The methods of the student wellbeing team are basic. We were inspired to create a game that the student health and wellness team can utilize to better connect with students and convey their important message of promoting mental health.
 
-What it does
-Health-Hack is an health and wellness platform game that turns the user from manually focusing on self-care to a retro gaming style! Basically, our game is inspired by cookie clicker. We developed a Mario-inspired clicker game, where players click on coins to earn in-game coins. These coins can be spent on power-ups like mushrooms which makes Mario grow bigger, fire flower which allows Mario to shoot fireballs and more. But the real power-ups come from real-world actions! Players can earn stars - a premium in-game currency by hitting personal health goals, such as: getting enough sleep, eating within a healthy calorie range, complete daily exercise goals and more.
+# What it does
+**Health-Hack** is a health and wellness platform game that turns the user from manually focusing on self-care to a retro gaming style! Basically, our game is inspired by Cookie Clicker. We developed a **Mario-inspired clicker game**, where players click on coins to earn in-game currency. These coins can be spent on power-ups like:
+- **Mushrooms** - Makes Mario grow bigger
+- **Fire Flower** - Allows Mario to shoot fireballs
+- **And more!**
 
-How we built it
-We used HTML, CSS for the front end of our game website. We also used javascript and Node.js for the backend and used the local database to store login/register credentials and SQL for storing tables and information .
+But the real power-ups come from **real-world actions**! Players can earn stars - a premium in-game currency - by hitting personal health goals, such as:
+- Getting enough sleep
+- Eating within a healthy calorie range
+- Completing daily exercise goals
+- And more!
 
-Challenges we ran into
-We had some trouble with connecting the database to our VSCode and making the routing work.
-We also had some challenges in Git, and making sure all of our work is saved and error with diverging branches.
+# How we built it
+- **Frontend:** HTML, CSS for the game website
+- **Backend:** JavaScript and Node.js
+- **Database:** Local database for login/register credentials, and SQL for storing tables and information
 
-Accomplishments that we're proud of
-We are proud of making a great game application and putting our hard work into it over a couple of days. We accomplished learning new things in programming and accomplished making a personal project.
+# Challenges we ran into
+- Connecting the database to our **VSCode** and making the routing work
+- Facing **Git challenges**, ensuring all of our work was saved, and resolving errors with diverging branches
 
-What we learned
-We learned new concepts and tools in programming, involving Git, HTML, CSS, and Javascript, and how to work in a team working on a collective programming project. We learned how to be more productive.
+# Accomplishments that we're proud of
+We are proud of creating a great game application and putting our hard work into it over a couple of days. We:
+- Learned new things in **programming**
+- Successfully created a **personal project**
 
-What's next for Health-Hack
-We will add and integrate more important features primarily on the health side in the near future.
+# What we learned
+We gained knowledge of:
+- **Git, HTML, CSS, and JavaScript**
+- Working in a team on a collective programming project
+- How to be **more productive** and collaborative
 
-Important
-Master Key: Master Key - Username: admin, Password: admin. So we created a login account already so the database won’t be accessible by everyone and you can have an account for the game.
+# What's next for Health-Hack
+We plan to **add and integrate more important features**, primarily on the health side, in the near future.
 
-Built With
-Frontend: HTML, CSS, JavaScript
-Backend: Node.js
-Database: SQL
-Development Environment: Visual Studio Code
+# Important Master Key
+**Master Key -** Username: `admin`, Password: `admin`.
+We created a login account so that the database won’t be accessible by everyone, ensuring security while allowing access to the game.
 
-
+# Built With
+- **Frontend:** HTML, CSS, JavaScript  
+- **Backend:** Node.js  
+- **Database:** SQL  
+- **Development Environment:** Visual Studio Code
 
