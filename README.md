@@ -16,8 +16,8 @@ But the real power-ups come from **real-world actions**! Players can earn stars 
 - And more!
 
 ## How we built it
-- **Frontend:** HTML, CSS for the game website
-- **Backend:** JavaScript and Node.js
+- **Frontend:** HTML, CSS, and JavaScript for the game website
+- **Routing:** Node.js
 - **Database:** Local database for login/register credentials, and SQL for storing tables and information
 
 ## Challenges we ran into
@@ -44,7 +44,7 @@ We created a login account so that the database won’t be accessible by everyon
 
 ## Built With
 - **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** Node.js  
+- **Routing:** Node.js  
 - **Database:** SQL  
 - **Development Environment:** Visual Studio Code
 
