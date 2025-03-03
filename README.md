@@ -1,4 +1,4 @@
-# Heath-Hack
+## Heath-Hack
 
 # Inspiration
 The methods of the student wellbeing team are basic. We were inspired to create a game that the student health and wellness team can utilize to better connect with students and convey their important message of promoting mental health.
